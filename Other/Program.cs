@@ -50,7 +50,9 @@ namespace Other
                         Press(t, c);
                 }
                 watch.Stop();
-                Console.WriteLine(watch.Elapsed);
+                Console.SetCursorPosition(Cursor.Position.X / 16+1, Cursor.Position.Y / 37);//Лишнее
+                Console.Write(watch.Elapsed);
+                Console.SetCursorPosition(Cursor.Position.X / 16, Cursor.Position.Y / 37);//Лишнее
                 if (watch.ElapsedMilliseconds < 200)
                     Thread.Sleep((int)(200 - watch.ElapsedMilliseconds));
                 watch.Reset();

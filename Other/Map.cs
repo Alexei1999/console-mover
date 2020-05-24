@@ -57,14 +57,20 @@ namespace Other
         {
             foreach (Bot n in bots)
             {
-                foreach (Obj o in n.ToObj())
-                    map.Insert(o);
+                Console.ForegroundColor = n.logic.stats.color;
+                cord z = n.pos;
+                Console.SetCursorPosition(z.x, z.y);
+                Console.Write(n.c);
+                //foreach (Obj o in n.ToObj())
+                //    map.Insert(o);
             }
-            foreach (string str in map.ToString())
-                Console.Write(str);
+            //foreach (string str in map.ToString())
+            //    Console.Write(str);
+            Console.ResetColor();
         }
         public static void Step(cord c)
         {
+            ShowMap();
             if (!pause) Doing();
             if (lining == true)
                 Drow(Line(target.pos, c));

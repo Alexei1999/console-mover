@@ -8,7 +8,7 @@ namespace Other
 {
     class Bot
     {
-        logic logic = null;
+        public logic logic = null;
         internal decimal speed = 0;
         public char c = 'w';
         public cord pos = new cord(0, 0);
@@ -22,6 +22,7 @@ namespace Other
         {
             pos = z;
             c = a;
+            logic.stats.color = ConsoleColor.Blue;
         }
         ~Bot() =>Map.bots.Remove(this);
         public void Move(cord c)
@@ -32,9 +33,9 @@ namespace Other
         {
             logic.Do();
         }
-        public Obj[] ToObj()
+        public Obj ToObj()
         {
-            return new Obj[] { new Obj(c, pos, logic.stats.color) };
+            return new Obj(c, pos, logic.stats.color);
         }
     }
 }
